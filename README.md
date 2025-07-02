@@ -1,4 +1,4 @@
-# ARay Viewer
+# ![icon30](https://github.com/user-attachments/assets/ea370d0a-bd76-4ab5-91bb-e9ea5da83b87) ARay Viewer
 Simple image viewer application built on Flutter
 
 Usage example:
