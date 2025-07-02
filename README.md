@@ -1,3 +1,2 @@
-# aray
-
-A new Flutter project.
+# ARayViewer
+Simple image viewer application build on Flutter
