@@ -19,7 +19,7 @@ PROS:
 
 CONS:
 - A lot fewer features, no slide show, no rotation, no share, no copilot, etc...
-- Worse performance, due to heavy caching
+- Worse performance
 - Sometimes, when opening multiple instances of the application, old instances start to use lots of memory. (Not sure what is going on there)
 - Don't handle images being removed or renamed.
 
