@@ -570,10 +570,6 @@ class _ImageControllerState extends State<ImageController> with WindowListener {
       return KeyEventResult.handled;
     }
     
-    if ((event is KeyRepeatEvent)) {
-      return KeyEventResult.handled;
-    }
-    
     if (event is KeyUpEvent) {
       return KeyEventResult.handled;
     }
@@ -584,19 +580,19 @@ class _ImageControllerState extends State<ImageController> with WindowListener {
     
       case PhysicalKeyboardKey.arrowLeft:
         if (!_checkTranslation(const Offset(offsetDistance, 0))) {
-          return _handleNextImageOpeningProtection(leftEdgeData);
+          return _handleNextImageOpeningProtection(event, leftEdgeData);
         }
     
       case PhysicalKeyboardKey.arrowRight:
         if (!_checkTranslation(const Offset(-offsetDistance, 0))) {
-          return _handleNextImageOpeningProtection(rightEdgeData);
+          return _handleNextImageOpeningProtection(event, rightEdgeData);
         }
     }
     
     return KeyEventResult.handled;
   }
 
-  KeyEventResult _handleNextImageOpeningProtection(EdgeData edgeData) {
+  KeyEventResult _handleNextImageOpeningProtection(KeyEvent event, EdgeData edgeData) {
 
     final viewportFit = viewport_utils.computeViewportFit(
       _transformer.value,
@@ -607,6 +603,10 @@ class _ImageControllerState extends State<ImageController> with WindowListener {
 
     if (!viewportFit.fitsWidth) {
       return KeyEventResult.ignored;
+    }
+
+    if ((event is KeyRepeatEvent)) {
+      return KeyEventResult.handled;
     }
 
     var moveTime = edgeData.triedToMoveTime.value;
